@@ -7,7 +7,7 @@ def read_student_record(file_path):
 # Student Record
 
 ## Student Information
-**Name:** Tim Lee
+**Name:** pds
 
 ## Alerts
 _No alerts yet._
