@@ -13,9 +13,9 @@ def read_student_record(file_path):
 _No alerts yet._
 
 ## Knowledge
-- **Variables:** Not demonstrated
-- **Loops:** Not demonstrated
-- **Recursion:** Not demonstrated
+- **Grammar:** Not demonstrated
+- **Sentence Building:** Not demonstrated
+- **Vocabulary:** Not demonstrated
 """
         with open(file_path, "w") as file:
             file.write(default_content)

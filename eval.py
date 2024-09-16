@@ -15,7 +15,7 @@ from langsmith import traceable
 client = wrap_openai(OpenAI())
 
 @traceable
-def prompt_java_compliance_evaluator(run: Run, example: Example) -> dict:
+def prompt_language_compliance_evaluator(run: Run, example: Example) -> dict:
     inputs = example.inputs['input']
     outputs = example.outputs['output']
 
@@ -68,26 +68,26 @@ def prompt_java_compliance_evaluator(run: Run, example: Example) -> dict:
     try:
         result = json.loads(response.choices[0].message.content)
         return {
-            "key": "prompt_java_compliance",
+            "key": "prompt_language_compliance",
             "score": result["score"] / 10,  # Normalize to 0-1 range
             "reason": result["explanation"]
         }
     except json.JSONDecodeError:
         return {
-            "key": "prompt_java_compliance",
+            "key": "prompt_language_compliance",
             "score": 0,
             "reason": "Failed to parse evaluator response"
         }
 
 # The name or UUID of the LangSmith dataset to evaluate on.
-data = "language-coach-dataset"
+data = "language-spanish-coach-dataset"
 
 # A string to prefix the experiment name with.
-experiment_prefix = "Java language coach prompt compliance"
+experiment_prefix = "Spanish language coach prompt compliance"
 
 # List of evaluators to score the outputs of target task
 evaluators = [
-    prompt_java_compliance_evaluator
+    prompt_language_compliance_evaluator
 ]
 
 # Evaluate the target task
